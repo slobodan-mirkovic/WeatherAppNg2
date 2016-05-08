@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
+import { Component } from '@angular/core';
 import { WeatherService } from './weather.services';
 import { StanicaComponent } from './stanica.component';
-import { HTTP_PROVIDERS } from 'angular2/http';
+import { HTTP_PROVIDERS } from '@angular/http';
 
 @Component({
     selector: 'my-app',
