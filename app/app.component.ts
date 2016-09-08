@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
 import { WeatherService } from './weather.services';
-import { StanicaComponent } from './stanica.component';
-import { HTTP_PROVIDERS } from '@angular/http';
+import { OnInit } from '@angular/core';
+
 
 @Component({
     selector: 'my-app',
     templateUrl: './app/app.component.html',
-    directives: [StanicaComponent],
-    providers: [HTTP_PROVIDERS, WeatherService]
+    providers: [ WeatherService]
 })
-export class AppComponent { 
-    public poruka;
-    
-    constructor(private _weatherService: WeatherService){
-    } 
-    
-     ngOnInit() { this.getHeroes(); }
+export class AppComponent implements OnInit {
 
-  getHeroes() {
-    this._weatherService.getWeather()
-      .subscribe(
-        poruka => this.poruka = poruka);
-  }                   
+  public podaci;
+
+  constructor(private weatherService: WeatherService) {
+  }
+
+  getHeroes(): void {
+    this.weatherService.getWeather().then(podaci => this.podaci = podaci);
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
 }
