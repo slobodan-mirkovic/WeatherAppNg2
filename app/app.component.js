@@ -10,24 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var weather_services_1 = require('./weather.services');
-var stanica_component_1 = require('./stanica.component');
-var http_1 = require('@angular/http');
 var AppComponent = (function () {
-    function AppComponent(_weatherService) {
-        this._weatherService = _weatherService;
+    function AppComponent(weatherService) {
+        this.weatherService = weatherService;
     }
-    AppComponent.prototype.ngOnInit = function () { this.getHeroes(); };
     AppComponent.prototype.getHeroes = function () {
         var _this = this;
-        this._weatherService.getWeather()
-            .subscribe(function (poruka) { return _this.poruka = poruka; });
+        this.weatherService.getWeather().then(function (podaci) { return _this.podaci = podaci; });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getHeroes();
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './app/app.component.html',
-            directives: [stanica_component_1.StanicaComponent],
-            providers: [http_1.HTTP_PROVIDERS, weather_services_1.WeatherService]
+            providers: [weather_services_1.WeatherService]
         }), 
         __metadata('design:paramtypes', [weather_services_1.WeatherService])
     ], AppComponent);

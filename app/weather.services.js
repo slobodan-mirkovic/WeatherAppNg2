@@ -10,19 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var Rx_1 = require('rxjs/Rx');
+require('rxjs/add/operator/toPromise');
 var WeatherService = (function () {
-    function WeatherService(_http) {
-        this._http = _http;
+    function WeatherService(http) {
+        this.http = http;
+        this.weatherUrl = 'http://api.openweathermap.org/data/2.5/find?lat=44.39&lon=20.26&cnt=10&appid=8e200a8cf713820d46d186869d7a4dcb';
     }
     WeatherService.prototype.getWeather = function () {
-        return this._http.get('http://api.openweathermap.org/data/2.5/find?lat=44.39&lon=20.26&cnt=10&appid=8e200a8cf713820d46d186869d7a4dcb')
-            .map(function (response) { return response.json().list; })
+        return this.http.get(this.weatherUrl)
+            .toPromise()
+            .then(function (response) { return response.json().list; })
             .catch(this.handleError);
     };
     WeatherService.prototype.handleError = function (error) {
-        console.error(error);
-        return Rx_1.Observable.throw(error.json().error || 'Server error');
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
     };
     WeatherService = __decorate([
         core_1.Injectable(), 
