@@ -10,7 +10,7 @@
       
             <p class="text-right"> {{weatherStation.main.temp - 273.15 | number:'1.1-1'}} &deg;C</p>
        
-            <img src="../../assets/img/{{weatherStation.weather[0].icon}}.png" />
+            <img [src]="'assets/img/' + weatherStation.weather[0].icon + '.png'" />
     
             <p class="pubdate">{{weatherStation.dt *1000 | date:'HH:mm'}} h</p>
        
