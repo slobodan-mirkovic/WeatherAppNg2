@@ -1,27 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <script>
-        // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
-        (function(){
-          var redirect = sessionStorage.redirect;
-          delete sessionStorage.redirect;
-          if (redirect && redirect != location.href) {
-            history.replaceState(null, null, redirect);
-          }
-        })();
-      </script>
   <meta charset="utf-8">
   <title>Automatske meteorološke stanice</title>
   <base href="/">
-  <link rel="stylesheet" href="style.css" type="text/html"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="articles container">
+     <div class="articles container">
        <app-root></app-root>
     </div>
 </body>

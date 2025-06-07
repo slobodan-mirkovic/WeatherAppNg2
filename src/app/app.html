@@ -1,0 +1,7 @@
+@if(stations && stations.length > 0) {
+ @for (weatherStation of stations; track weatherStation.name) {
+  <app-weather-station [weatherStation]="weatherStation"></app-weather-station>
+}
+} @else {
+  <p>No weather stations available.</p>
+}
