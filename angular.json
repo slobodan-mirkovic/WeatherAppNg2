@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular20": {
+    "WeatherAppNg2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/Angular20",
+            "outputPath": "dist/WeatherAppNg2",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Angular20:build:production"
+              "buildTarget": "WeatherAppNg2:build:production"
             },
             "development": {
-              "buildTarget": "Angular20:build:development"
+              "buildTarget": "WeatherAppNg2:build:development"
             }
           },
           "defaultConfiguration": "development"
